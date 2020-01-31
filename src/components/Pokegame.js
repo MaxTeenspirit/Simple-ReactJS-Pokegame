@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Pokecard from './Pokecard';
-import './Pokedex.css';
 
-class Pokedex extends Component {
+class Pokegame extends Component {
     static defaultProps = {
         pokemon:[
             {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
@@ -16,23 +14,19 @@ class Pokedex extends Component {
           ]          
     }
     render() {
+        let hand1 = [],
+            hand2 = [...this.props.pokemon];
+        while(hand1.length < hand2.length) {
+            let randIdx = Math.floor(Math.random() * hand2.length);
+            let randPokemon = hand2.splice(randIdx, 1)[0];
+            hand1.push(randPokemon);
+        }
         return (
-            <div className="Pokedex">
-                <h1>Pokedex!</h1>
-                <div className="Pokedex-cards">
-                    {this.props.pokemon.map((p) => (
-                        <Pokecard 
-                            key={p.id + this.props.pokemon.indexOf(p)} 
-                            id={p.id} 
-                            name={p.name} 
-                            type={p.type} 
-                            exp={p.base_experience} 
-                        />
-                    ))}
-                </div>
+            <div>
+                <h1>Pokegame!</h1>
             </div>
         )
     }
 }
 
-export default Pokedex;
+export default Pokegame;
