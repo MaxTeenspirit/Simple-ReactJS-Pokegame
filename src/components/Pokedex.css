@@ -3,3 +3,15 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+.Pokedex-text {
+    text-align: center;
+}
+
+.Pokedex-winner {
+    color: rgb(37, 122, 37);
+}
+
+.Pokedex-looser {
+    color: rgb(228, 46, 46);
+}
